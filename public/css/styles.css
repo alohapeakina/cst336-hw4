@@ -143,7 +143,7 @@ nav ul {
     margin: 0;
 }
 
-footer, header, nav, h2, h3, .values-header, .scrum-header, .kanban-header, .lean-header {
+footer, header, nav, h2, h3, .values-header, .scrum-header, .kanban-header, .lean-header, .xp-header {
     text-align: center;
 }
 
@@ -156,6 +156,13 @@ figcaption {
 
 .values-header img, .kanban-header img, .lean-header img, .scrum-header img {
     max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.xp-header img {
+    max-width: 500px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
