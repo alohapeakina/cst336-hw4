@@ -38,7 +38,7 @@ a {
     color:#d59311;
 }
 
-nav a.active {
+nav li.active a {
     color:#d59311;
     font-weight: bold;
 }

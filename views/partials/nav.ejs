@@ -1,9 +1,9 @@
 <nav>
 <ul>
-    <li><a href="/"> Home </a></li>
-    <li><a href="/scrum"> Scrum </a></li>
-    <li><a href="/kanban"> Kanban </a></li>
-    <li><a href="/lean"> Lean </a></li>
-    <li><a href="/xp"> Extreme Programming </a></li>
+    <li class="<%= page_name === 'home' ? 'active' : '' %>"><a href="/"> Home </a></li>
+    <li class="<%= page_name === 'scrum' ? 'active' : '' %>"><a href="/scrum"> Scrum </a></li>
+    <li class="<%= page_name === 'kanban' ? 'active' : '' %>"><a href="/kanban"> Kanban </a></li>
+    <li class="<%= page_name === 'lean' ? 'active' : '' %>"><a href="/lean"> Lean </a></li>
+    <li class="<%= page_name === 'xp' ? 'active' : '' %>"><a href="/xp"> Extreme Programming </a></li>
 </ul>
 </nav>
