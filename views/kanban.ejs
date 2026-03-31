@@ -5,7 +5,6 @@
     <header>
         <h1>Agile Methodologies - Kanban</h1>
     </header>
-    <hr>
     <%- include('partials/nav.ejs') %>
     <main>
         <article class="kanban-overview">
@@ -22,44 +21,43 @@
                 <article class="practices-card"><span>3</span><p>Improving a workflow</p></article>
             </div>
         </section>
+        <h2>Kanban in Practice</h2>
         <p>Kanban's focus on visualization helps practicioners to clearly see the work required, providing easy ways to identify bottlenecks or inefficiencies in a process. This often takes the form of a "Kanban Board" (see image below).</p>
         <p>Each column within a Kanban Board represent a stage in a workflow and are populated through cards which indicate tasks that move through the process (To Do &#8594; In Progress &#8594; Done). To emphasize completion of work, each phase of a process
             generally has a limit to the number of items which can be in that phase, encouraging the full completion of tasks before new ones are started.
         </p>
         
-        <section class="kanban-board-container">
-            <h2>Sample Kanban Board</h2>
-            
-            <div class="kanban-board">
-                <% lists.forEach(list => { %>
-                    <div class="kanban-column">
-                        <h3><%= list.name %></h3>
-                        
-                        <div class="kanban-cards-list">
-                            <% cards.forEach(card => { %>
-                                <% if (card.idList === list.id) { %>
+        <section class="kanban-board-container">          
+        <div class="kanban-board">
+            <% lists.forEach(list => { %>
+                <div class="kanban-column">
+                    <h3><%= list.name %></h3>
+                    
+                    <div class="kanban-cards-list">
+                        <% cards.forEach(card => { %>
+                            <% if (card.idList === list.id) { %>
+                                
+                                <article class="kanban-card status-<%= card.labels[0]?.color || 'default' %>">
+                                    <h4><%= card.name %></h4>
+                                    <% if (card.desc) { %>
+                                        <p><%= card.desc %></p>
+                                    <% } %>
                                     
-                                    <article class="kanban-card status-<%= card.labels[0]?.color || 'default' %>">
-                                        <h4><%= card.name %></h4>
-                                        <% if (card.desc) { %>
-                                            <p><%= card.desc %></p>
-                                        <% } %>
-                                        
-                                        <% if (card.labels && card.labels.length > 0) { %>
-                                            <div class="card-labels">
-                                                <% card.labels.forEach(label => { %>
-                                                    <span class="label tag-<%= label.color %>"><%= label.name %></span>
-                                                <% }); %>
-                                            </div>
-                                        <% } %>
-                                    </article>
-                                    
-                                <% } %>
-                            <% }); %>
-                        </div>
+                                    <% if (card.labels && card.labels.length > 0) { %>
+                                        <div class="card-labels">
+                                            <% card.labels.forEach(label => { %>
+                                                <span class="label tag-<%= label.color %>"><%= label.name %></span>
+                                            <% }); %>
+                                        </div>
+                                    <% } %>
+                                </article>
+                                
+                            <% } %>
+                        <% }); %>
                     </div>
-                <% }); %>
-            </div>
+                </div>
+            <% }); %>
+        </div>
         </section>
 
     </main>
