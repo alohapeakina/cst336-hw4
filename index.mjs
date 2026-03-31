@@ -1,7 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import Trello from 'trello';
 
 dotenv.config();
+
+const trello = new Trello(process.env.TRELLO_API_KEY, process.env.TRELLO_API_TOKEN);
+const boardId = process.env.TRELLO_BOARD_ID;
 
 const app = express();
 app.set("view engine", "ejs");
@@ -16,20 +20,15 @@ app.get('/kanban', async (req, res) => {
    console.log("Loading kanban page");
    let page_name = "kanban";
 
-   const apiKey = process.env.TRELLO_API_KEY;
-   const token = process.env.TRELLO_API_TOKEN;
-   const boardId = process.env.TRELLO_BOARD_ID;
-
-   const url = `https://api.trello.com/1/boards/${boardId}?lists=open&cards=open&key=${apiKey}&token=${token}`;
-
    try {
-      const response = await fetch(url);
-      const data = await response.json();
+
+      const lists = await trello.getListsOnBoard(boardId);
+      const cards = await trello.getCardsOnBoard(boardId);
 
       res.render("kanban", {
          page_name,
-         lists: data.lists,
-         cards: data.cards
+         lists: lists,
+         cards: cards
       });
    } catch (error) {
       console.error("Failed to fetch Trello data: ", error);
