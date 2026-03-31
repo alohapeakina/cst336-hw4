@@ -14,6 +14,7 @@ header {
 }
 
 header h1 {
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     font-size: 2.5rem;
 }
@@ -98,15 +99,17 @@ section {
     background: transparent;
     box-shadow: none;
     border-radius: 0;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
-section h2, section h3 {
+article h2, section h2, section h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
     position: relative;
     padding-top: 25px;
 }
 
-section h2::before, section h3::before {
+section h2::before, section:not(.kanban-board-container) h3::before {
     content: '';
     position: absolute;
     top: 0;
@@ -248,9 +251,20 @@ footer, header, nav, h2, h3, .values-header, .scrum-header, .lean-header, .xp-he
     text-align: center;
 }
 
+figure img {
+    display: block;
+    margin: 0 auto;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
 figcaption {
     font-size: 0.9rem;
 }
+
 .lean-header p {
     text-align: left;
 }
