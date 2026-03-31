@@ -87,7 +87,7 @@ nav ul {
     margin: 0 auto;
 }
 
-.principles-card, .practices-card, .lean-principles-card {
+.principles-card, .practices-card, .kanban-card {
     background: #ffffff;
     padding: 15px;
     border-radius: 10px;
@@ -117,7 +117,7 @@ nav ul {
     gap: 5px;
 }
 
-.principles-card:hover, .practices-card:hover, .lean-principles-card:hover {
+.principles-card:hover, .practices-card:hover, .lean-principles-card:hover, .kanban-card:hover {
     transform:translateY(-5px);
     background: #ffffff;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
@@ -165,4 +165,75 @@ figcaption {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.kanban-board-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.kanban-board {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 15px;
+}
+
+.kanban-column {
+    flex: 1;
+    min-width: 280px;
+    background-color: #ebecf0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.kanban-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kanban-column h3 {
+    font-size: 1.2rem;
+    color: #003366;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.kanban-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: #2d3436;
+    text-align: left;
+}
+
+.kanban-card p {
+    font-size: 0.85rem;
+    color: #636e72;
+    margin: 0 0 10px 0;
+}
+
+.label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* Trello label colors */
+.tag-green {
+    background-color: #61bd4f;
+}
+
+.tag-red {
+    background-color: #eb5a46;
+}
+
+.tag-blue {
+    background-color: #0079bf;
 }
